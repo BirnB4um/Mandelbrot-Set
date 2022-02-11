@@ -5,6 +5,14 @@ uniform float min_x, max_x, min_y, max_y;
 uniform int limit;
 
 
+int color_panel[21] = {
+		1, 0, 0,
+		1, 1, 0,
+		1, 1, 1,
+		1, 0, 1,
+		0, 0, 1,
+		0, 1, 1,
+		0, 1, 0 };
 
 void main() {
     
@@ -35,16 +43,21 @@ void main() {
 		return;
 	}    
 
-	//pixel.r = float(iter)/limit;
-	vec3 new_color = vec3(0, 0, 0);
-	new_color.r = iter/255.0;
-	new_color.b = (iter * iter)/255.0;
-	new_color.g = (iter * iter * iter)/255.0;
 
+	float index = (float(iter) / 40.0f);
+	int i_index = (int(index) % 7);
+	index = index - int(index);
+	int next_index = ((i_index + 1) % 7) * 3;
+	i_index *= 3;
 
-	pixel.r = new_color.r - int(new_color.r);
-	pixel.g = new_color.g - int(new_color.g);
-	pixel.b = new_color.b - int(new_color.b);
+	float r_ = color_panel[i_index];
+	float g_ = color_panel[i_index + 1];
+	float b_ = color_panel[i_index + 2];
+
+	pixel.r = r_ + (index * (color_panel[next_index] - r_) );
+	pixel.g = g_ + (index * (color_panel[next_index + 1] - g_));
+	pixel.b = b_ + (index * (color_panel[next_index + 2] - b_));
+
     gl_FragColor = pixel;
 
     
