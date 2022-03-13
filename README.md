@@ -7,3 +7,5 @@
    Enter      -   save to file (only in CPU mode)  
 
 ![Image](bsp1.png)
+![Image](bsp3.png)
+![Image](bsp4.png)
