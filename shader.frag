@@ -1,9 +1,8 @@
 
-uniform sampler2D texture;
+uniform sampler2D texture;																					
 
 uniform float min_x, max_x, min_y, max_y;
 uniform int limit;
-
 
 int color_panel[21] = {
 		1, 0, 0,
@@ -60,5 +59,4 @@ void main() {
 
     gl_FragColor = pixel;
 
-    
 }
