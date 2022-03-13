@@ -36,10 +36,10 @@ void help() {
 	cout << "\n";
 	cout << "    Mandelbrot set\n";
 	cout << "\n";
-	cout << "  Controls:\n";
+	cout << "           Controls:\n";
 	cout << "   W/A/S/D    -   move up/right/down/left\n";
 	cout << "   Up/Down    -   zoom in/out\n";
-	cout << "   Left/Right -   increase/decrease iterationlimit\n";
+	cout << "   Left/Right -   decrease/increase iterationlimit\n";
 	cout << "   R          -   switch between CPU and GPU computation\n";
 	cout << "   Enter      -   save to file (only with CPU)\n";
 	cout << endl;
@@ -114,6 +114,7 @@ int main()
 	shader.loadFromFile("shader.frag", sf::Shader::Fragment);
 
 	update_title(window);
+
 
 	while (window.isOpen())
 	{
@@ -193,7 +194,7 @@ int main()
 		}
 
 		recalculate = true;
-		if (sub_division > 800) {
+		if (sub_division > 801) {
 			recalculate = false;
 		}
 
@@ -211,11 +212,6 @@ int main()
 			//compute color for each pixel
 			for (int y = 0; y < sub_division; y++) {
 				for (int x = 0; x < sub_division; x++) {
-
-					//skip section if already computed
-					if (!(sub_division == min_sub_division) && y % 2 == 0 && x % 2 == 0) {
-						continue;
-					}
 
 					int w = 800 / sub_division;
 					real = dx - zoom_factor + _dx * x * w;
