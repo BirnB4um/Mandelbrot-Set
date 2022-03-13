@@ -1,6 +1,7 @@
-# Mandelbrot-Set
-R - Toggle between computation on CPU and GPU
-      (GPU is faster but CPU has higher precision and lower quality)  
-W/A/S/D - move around  
-Up/Down - zoom in/out  
-Left/Right - decrease/increase iterationlimit
+# Mandelbrot-Set  
+
+   W/A/S/D    -   move up/right/down/left  
+   Up/Down    -   zoom in/out  
+   Left/Right -   decrease/increase iterationlimit  
+   R          -   switch between CPU and GPU computation (GPU is faster but lower precision)  
+   Enter      -   save to file (only in CPU mode)  
