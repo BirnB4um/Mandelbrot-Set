@@ -103,8 +103,8 @@ int main()
 
 	bool recalculate = true;
 	double zoom_factor = 2;
-	int sub_division = 8;
-	int min_sub_division = 20;
+	int sub_division = 40;
+	int min_sub_division = 40;
 
 	sf::Texture tex;
 	tex.create(SCREEN_WIDTH, SCREEN_HEIGHT);
